@@ -18,8 +18,8 @@ jpa:
  hibernate:
  ddl-auto: update
 
-# server:
-#  port: 8083
+server:
+ port: 8083
 
 redis:
  host: localhost
