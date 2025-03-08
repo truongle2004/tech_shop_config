@@ -1,10 +1,6 @@
 spring:
   application:
     name: product-service
-  h2:
-    console:
-      enabled: true
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -12,15 +8,16 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
 
-server:
-  port: 8081
-
   datasource:
     # driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/product_db?allowPublicKeyRetrieval=true&useSSL=false
     username: root
     password: root
     # show-sql: true
+
+server:
+  port: 8081
+
 
 cors:
   allowed-origins: http://localhost:5173
