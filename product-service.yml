@@ -1,6 +1,9 @@
 spring:
   application:
     name: product-service
+  h2:
+    console:
+      enabled: true
 
   jpa:
     hibernate:
