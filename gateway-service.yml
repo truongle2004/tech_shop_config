@@ -10,36 +10,45 @@ jwt:
 main:
   allow-bean-definition-overriding: true
 
-security:
-  oauth2:
-    resourceserver:
-      jwt:
-        issuer-uri: http://localhost:8088/realms/tech_shop_auth_api
-        jwt-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8088/realms/tech_shop_auth_api
+          jwt-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+  gateway:
+    globalcors:
+      corsConfigurations:
+        "[/**]":
+          allowedOrigins: "http://localhost:5173"
+          allowedMethods: "*"
+          allowedHeaders: "*"
+          allowCredentials: true
   cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        # - id: customer-service
-        #   uri: lb:http://CUSTOMER-SERVICE
-        #   predicates:
-        #     - Path=/api/v1/customers/**
-        # - id: order-service
-        #   uri: lb:http://ORDER-SERVICE
-        #   predicates:
-        #     - Path=/api/v1/orders/**
-        # - id: order-lines-service
-        #   uri: lb:http://ORDER-SERVICE
-        #   predicates:
-        #     - Path=/api/v1/order-lines/**
-        - id: product-service
-          uri: lb:http://PRODUCT-SERVICE
-          predicates:
-            - Path=/api/v1/products/**
-        # - id: payment-service
-        #   uri: lb:http://PAYMENT-SERVICE
-        #   predicates:
-        #     - Path=/api/v1/payments/**
+    discovery:
+      locator:
+        enabled: true
+
+    routes:
+      # - id: customer-service
+      #   uri: lb:http://CUSTOMER-SERVICE
+      #   predicates:
+      #     - Path=/api/v1/customers/**
+      # - id: order-service
+      #   uri: lb:http://ORDER-SERVICE
+      #   predicates:
+      #     - Path=/api/v1/orders/**
+      # - id: order-lines-service
+      #   uri: lb:http://ORDER-SERVICE
+      #   predicates:
+      #     - Path=/api/v1/order-lines/**
+      - id: product-service
+        uri: lb:http://PRODUCT-SERVICE
+        predicates:
+          - Path=/api/v1/products/**
+      # - id: payment-service
+      #   uri: lb:http://PAYMENT-SERVICE
+      #   predicates:
+      #     - Path=/api/v1/payments/**
