@@ -20,8 +20,8 @@ spring:
             allowCredentials: true
 
     routes:
-      - id: PRODUCT-SERVICE
-        # uri: lb:http://PRODUCT-SERVICE
-        uri: lb://product-service
+      - id: product-service
+        uri: lb:http://PRODUCT-SERVICE
+        # uri: lb://product-service
         predicates:
           - Path=/api/v1/products/**
