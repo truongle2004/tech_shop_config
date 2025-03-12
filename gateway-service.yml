@@ -10,13 +10,13 @@ server:
 main:
   allow-bean-definition-overriding: true
 
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-  instance:
-    prefer-ip-address: true
+#
+# eureka:
+#   client:
+#     register-with-eureka: true
+#     fetch-registry: true
+#   instance:
+#     prefer-ip-address: true
 
 # spring:
 #   security:
