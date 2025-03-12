@@ -7,10 +7,10 @@ main:
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+      # discovery:
+      #   locator:
+      #     enabled: true
+      #     lower-case-service-id: true
       globalcors:
         corsConfigurations:
           "[/**]":
@@ -20,7 +20,7 @@ spring:
             allowCredentials: true
 
     routes:
-      - id: product-service
+      - id: PRODUCT-SERVICE
         # uri: lb:http://PRODUCT-SERVICE
         uri: lb://PRODUCT-SERVICE
         predicates:
