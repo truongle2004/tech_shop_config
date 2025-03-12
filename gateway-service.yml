@@ -18,18 +18,19 @@ spring:
           issuer-uri: http://localhost:8088/realms/tech_shop_auth_api
           jwt-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
 
-  gateway:
-    globalcors:
-      corsConfigurations:
-        "[/**]":
-          allowedOrigins: "http://localhost:5173"
-          allowedMethods: "*"
-          allowedHeaders: "*"
-          allowCredentials: true
   cloud:
     discovery:
       locator:
         enabled: true
+
+    gateway:
+      globalcors:
+        corsConfigurations:
+          "[/**]":
+            allowedOrigins: "http://localhost:5173"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
 
     routes:
       # - id: customer-service
@@ -44,6 +45,12 @@ spring:
       #   uri: lb:http://ORDER-SERVICE
       #   predicates:
       #     - Path=/api/v1/order-lines/**
+
+      - id: category-service
+        uri: lb:http://category-SERVICE
+        predicates:
+          - Path=/api/v1/category/**
+
       - id: product-service
         uri: lb:http://PRODUCT-SERVICE
         predicates:
