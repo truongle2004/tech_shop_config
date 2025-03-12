@@ -22,6 +22,8 @@ spring:
     discovery:
       locator:
         enabled: true
+        lowerCaseServiceId: true
+        
 
     gateway:
       globalcors:
