@@ -14,10 +14,10 @@ spring:
       globalcors:
         corsConfigurations:
           "[/**]":
-            allowedOrigins: "*"
+            allowedOrigins: "http://localhost:5173"
             allowedMethods: "*"
             allowedHeaders: "*"
-            # allowCredentials: true
+            allowCredentials: true
 
       routes:
         - id: product-service
@@ -26,9 +26,9 @@ spring:
             - Path=/api/v1/products/**
 
 
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+# eureka:
+#   instance:
+#     hostname: localhost
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka
