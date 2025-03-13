@@ -1,8 +1,8 @@
 server:
   port: 8222
 
-main:
-  allow-bean-definition-overriding: true
+# main:
+#   allow-bean-definition-overriding: true
 
 spring:
   cloud:
@@ -19,13 +19,11 @@ spring:
             allowedHeaders: "*"
             allowCredentials: true
 
-    routes:
-      - id: product-service
-        # uri: lb:http://PRODUCT-SERVICE
-        # uri: lb://product-service
-        uri: http://localhost:8081
-        predicates:
-          - Path=/api/v1/products/**
+      routes:
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/api/v1/products/**
 
 
 eureka:
