@@ -19,8 +19,8 @@ server:
   port: 8081
 
 
-cors:
-  allowed-origins: http://localhost:5173
+# cors:
+#   allowed-origins: http://localhost:5173
 
 hibernate:
   search:
@@ -28,12 +28,12 @@ hibernate:
       directory_provider: filesystem
       indexBase: ./src/main/resources/static
 
-  main:
-    allow-bean-definition-overriding: true
+  # main:
+  #   allow-bean-definition-overriding: true
 
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+# eureka:
+#   instance:
+#     hostname: localhost
+#   client:
+#     service-url:
+#       defaultZone: http://localhost:8761/eureka
