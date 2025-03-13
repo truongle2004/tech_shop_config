@@ -17,7 +17,7 @@ spring:
             allowedOrigins: "*"
             allowedMethods: "*"
             allowedHeaders: "*"
-            allowCredentials: true
+            # allowCredentials: true
 
       routes:
         - id: product-service
