@@ -1,10 +1,12 @@
 server:
   port: 8222
 
-# main:
-#   allow-bean-definition-overriding: true
-
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://localhost:8181
   cloud:
     gateway:
       discovery:
@@ -14,7 +16,8 @@ spring:
       globalcors:
         corsConfigurations:
           "[/**]":
-            allowedOrigins: "http://localhost:5173"
+            allowedOrigins:
+              - "http://localhost:5173"
             allowedMethods: "*"
             allowedHeaders: "*"
             allowCredentials: true
@@ -22,17 +25,18 @@ spring:
       routes:
         - id: product-service
           uri: lb://product-service
+          filters:
+            - DedupeResponseHeader=Vary
           predicates:
             - Path=/api/v1/products/**
 
+        - id: cart-service
+          uri: lb://cart-service
+          filters:
+            - DedupeResponseHeader=Vary
+          predicates:
+            - Path=/api/v1/carts/**
 
-# eureka:
-#   instance:
-#     hostname: localhost
-#   client:
-#     service-url:
-#       defaultZone: http://localhost:8761/eureka
-#
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
