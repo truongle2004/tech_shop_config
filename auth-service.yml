@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: auth-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  datasource:
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/product_db?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: root
+    # show-sql: true
+
+
+
+server:
+  port: 8181
+
