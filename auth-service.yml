@@ -15,8 +15,7 @@ spring:
     password: root
     # show-sql: true
 
-
+ISSUER_URI: http://localhost:8181
 
 server:
   port: 8181
-
