@@ -12,3 +12,6 @@ spring:
     config:
       override-system-properties: false
 
+
+jwt:
+  secret: "yourVeryLongAndSecureSecretKeyThatIsSafeToStoreInPropertiesFile123!@#"
