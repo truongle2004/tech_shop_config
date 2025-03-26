@@ -32,8 +32,6 @@ spring:
 
         - id: cart-service
           uri: lb://cart-service
-          filters:
-            - JwtValidationFilter
           predicates:
             - Path=/api/v1/carts/**
 
