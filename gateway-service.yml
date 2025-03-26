@@ -33,7 +33,7 @@ spring:
         - id: cart-service
           uri: lb://cart-service
           filters:
-            - DedupeResponseHeader=Vary
+            - JwtValidationFilter
           predicates:
             - Path=/api/v1/carts/**
 
